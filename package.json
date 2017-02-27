@@ -1,6 +1,6 @@
 {
   "name": "smartjson",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "typed json handlers",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
