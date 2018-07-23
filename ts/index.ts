@@ -1,18 +1,17 @@
-import 'typings-global'
-let lodash = require('lodash')
+let lodash = require('lodash');
 
 export class Foldable {
-  saveableProperties: string[]
+  saveableProperties: string[];
 
   /**
    * folds a class into an object
    */
-  foldToObject () {
-    let newFoldedObject = {}
+  foldToObject() {
+    let newFoldedObject = {};
     for (let keyName of this.saveableProperties) {
-      newFoldedObject[ keyName ] = lodash.cloneDeep(this[ keyName ])
+      newFoldedObject[keyName] = lodash.cloneDeep(this[keyName]);
     }
-    return newFoldedObject
+    return newFoldedObject;
   }
 
   /**
@@ -21,7 +20,7 @@ export class Foldable {
   enfoldFromObject(objectArg) {
     for (let keyName in objectArg) {
       if (this.saveableProperties.indexOf(keyName) !== -1) {
-        this[ keyName ] = objectArg[ keyName ]
+        this[keyName] = objectArg[keyName];
       }
     }
   }
@@ -32,7 +31,9 @@ export class Foldable {
  */
 export let foldDec = () => {
   return (target: any, key: string) => {
-    if (!target.saveableProperties) { target.saveableProperties = [] }
-    target.saveableProperties.push(key)
-  }
-}
+    if (!target.saveableProperties) {
+      target.saveableProperties = [];
+    }
+    target.saveableProperties.push(key);
+  };
+};
