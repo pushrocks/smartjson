@@ -1,13 +1,13 @@
 {
   "name": "@pushrocks/smartjson",
   "version": "2.0.1",
-  "private": true,
+  "private": false,
   "description": "typed json handlers",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "(tsrun test/test.ts)",
-    "build": "(npmts)"
+    "test": "(tstest test/)",
+    "build": "(tsbuild)"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,11 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartjson#README",
   "devDependencies": {
-    "@gitzone/tsrun": "^1.1.9",
-    "@pushrocks/tapbundle": "^3.0.1"
+    "@gitzone/tsbuild": "^2.0.22",
+    "@gitzone/tsrun": "^1.1.12",
+    "@gitzone/tstest": "^1.0.15",
+    "@pushrocks/tapbundle": "^3.0.1",
+    "@types/node": "^10.9.4"
   },
   "dependencies": {
     "lodash": "^4.17.10"

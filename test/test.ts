@@ -1,6 +1,6 @@
 import { tap, expect } from "@pushrocks/tapbundle";
 
-import { Foldable, foldDec } from "../dist/index";
+import { Foldable, foldDec } from "../ts/index";
 
 class SomeClass extends Foldable {
   @foldDec() thisis: string = "test";
