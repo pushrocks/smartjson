@@ -1,9 +1,9 @@
-import { tap, expect } from "@pushrocks/tapbundle";
+import { tap, expect } from '@pushrocks/tapbundle';
 
-import { Foldable, foldDec } from "../ts/index";
+import { Smartjson, foldDec } from '../ts/index';
 
-class SomeClass extends Foldable {
-  @foldDec() thisis: string = "test";
+class SomeClass extends Smartjson {
+  @foldDec() thisis: string = 'test';
   constructor() {
     super();
     console.log(this.saveableProperties);
@@ -12,24 +12,24 @@ class SomeClass extends Foldable {
 
 let mySomeClass: SomeClass;
 
-tap.test("should create a Foldable extended instance", async () => {
+tap.test('should create a Foldable extended instance', async () => {
   mySomeClass = new SomeClass();
   expect(mySomeClass).to.be.instanceof(SomeClass);
-  expect(mySomeClass).to.be.instanceof(Foldable);
+  expect(mySomeClass).to.be.instanceof(Smartjson);
 });
 
-tap.test("should create a folded object", async () => {
+tap.test('should create a folded object', async () => {
   let foldedObject = mySomeClass.foldToObject();
   expect(foldedObject)
-    .property("thisis")
-    .to.equal("test");
+    .property('thisis')
+    .to.equal('test');
 });
 
-tap.test("should enfold from object", async () => {
-  mySomeClass.enfoldFromObject({ thisis: "test2" });
+tap.test('should enfold from object', async () => {
+  mySomeClass.enfoldFromObject({ thisis: 'test2' });
   expect(mySomeClass)
-    .property("thisis")
-    .to.equal("test2");
+    .property('thisis')
+    .to.equal('test2');
 });
 
-tap.start()
+tap.start();

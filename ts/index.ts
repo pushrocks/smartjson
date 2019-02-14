@@ -1,15 +1,26 @@
-let lodash = require('lodash');
+import * as plugins from './smartjson.plugins';
 
-export class Foldable {
+export class Smartjson {
+  // ======
+  // STATIC
+  // ======
+  static parse = JSON.parse;
+
+  static stringify = plugins.stableJson;
+
+  // ========
+  // INSTANCE
+  // ========
+
   saveableProperties: string[];
 
   /**
    * folds a class into an object
    */
   foldToObject() {
-    let newFoldedObject = {};
+    let newFoldedObject: {[key: string]: any} = {};
     for (let keyName of this.saveableProperties) {
-      newFoldedObject[keyName] = lodash.cloneDeep(this[keyName]);
+      newFoldedObject[keyName] = plugins.lodash.cloneDeep(this[keyName]);
     }
     return newFoldedObject;
   }

@@ -1,5 +1,15 @@
 {
   "npmci": {
     "npmAccessLevel": "public"
+  },
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gitscope": "pushrocks",
+      "gitrepo": "smartjson",
+      "shortDescription": "typed json handlers",
+      "npmPackagename": "@pushrocks/smartjson",
+      "license": "MIT"
+    }
   }
 }
