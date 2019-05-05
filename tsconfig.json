@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "experimentalDecorators": true,
-        "target": "es2016",
+        "esModuleInterop": true,
+        "target": "es2017",
         "module": "commonjs"
     }
 }

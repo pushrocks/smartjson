@@ -6,7 +6,9 @@ export class Smartjson {
   // ======
   static parse = JSON.parse;
 
-  static stringify = plugins.stableJson;
+  static stringify = async (objArg: any, optionsArg: plugins.stableJson.Options) => {
+    return plugins.stableJson(objArg, optionsArg)
+  };
 
   // ========
   // INSTANCE
