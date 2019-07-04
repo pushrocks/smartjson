@@ -1,7 +1,7 @@
-import * as lodash from 'lodash';
+import lodashCloneDeep from 'lodash.clonedeep';
 import stableJson from 'fast-json-stable-stringify';
 
 export {
-  lodash,
+  lodashCloneDeep,
   stableJson
 }

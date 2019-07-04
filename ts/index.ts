@@ -22,7 +22,7 @@ export class Smartjson {
   foldToObject() {
     let newFoldedObject: {[key: string]: any} = {};
     for (let keyName of this.saveableProperties) {
-      newFoldedObject[keyName] = plugins.lodash.cloneDeep(this[keyName]);
+      newFoldedObject[keyName] = plugins.lodashCloneDeep(this[keyName]);
     }
     return newFoldedObject;
   }
