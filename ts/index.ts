@@ -7,7 +7,7 @@ export class Smartjson {
   static parse = JSON.parse;
 
   static stringify = (objArg: any, optionsArg: plugins.stableJson.Options) => {
-    return plugins.stableJson(objArg, optionsArg)
+    return plugins.stableJson(objArg, optionsArg);
   };
 
   // ========
@@ -20,7 +20,7 @@ export class Smartjson {
    * folds a class into an object
    */
   foldToObject() {
-    let newFoldedObject: {[key: string]: any} = {};
+    let newFoldedObject: { [key: string]: any } = {};
     for (let keyName of this.saveableProperties) {
       newFoldedObject[keyName] = plugins.lodashCloneDeep(this[keyName]);
     }
