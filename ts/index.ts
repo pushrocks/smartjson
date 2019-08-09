@@ -4,9 +4,9 @@ export class Smartjson {
   // ======
   // STATIC
   // ======
-  static parse = JSON.parse;
+  public static parse = JSON.parse;
 
-  static stringify = (objArg: any, optionsArg: plugins.stableJson.Options) => {
+  public static stringify = (objArg: any, optionsArg: plugins.stableJson.Options) => {
     return plugins.stableJson(objArg, optionsArg);
   };
 
@@ -14,14 +14,14 @@ export class Smartjson {
   // INSTANCE
   // ========
 
-  saveableProperties: string[];
+  public saveableProperties: string[];
 
   /**
    * folds a class into an object
    */
-  foldToObject() {
-    let newFoldedObject: { [key: string]: any } = {};
-    for (let keyName of this.saveableProperties) {
+  public foldToObject() {
+    const newFoldedObject: { [key: string]: any } = {};
+    for (const keyName of this.saveableProperties) {
       newFoldedObject[keyName] = plugins.lodashCloneDeep(this[keyName]);
     }
     return newFoldedObject;
@@ -30,8 +30,8 @@ export class Smartjson {
   /**
    * enfolds data from an object
    */
-  enfoldFromObject(objectArg) {
-    for (let keyName in objectArg) {
+  public enfoldFromObject(objectArg) {
+    for (const keyName in objectArg) {
       if (this.saveableProperties.indexOf(keyName) !== -1) {
         this[keyName] = objectArg[keyName];
       }
