@@ -8,7 +8,7 @@ export class Smartjson {
 
   public static stringify = (objArg: any, optionsArg: plugins.stableJson.Options) => {
     return plugins.stableJson(objArg, optionsArg);
-  };
+  }
 
   // ========
   // INSTANCE
