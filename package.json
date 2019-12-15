@@ -20,17 +20,17 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartjson#README",
   "devDependencies": {
-    "@gitzone/tsbuild": "^2.1.11",
+    "@gitzone/tsbuild": "^2.1.17",
     "@gitzone/tsrun": "^1.2.8",
-    "@gitzone/tstest": "^1.0.24",
-    "@pushrocks/tapbundle": "^3.0.13",
-    "@types/node": "^12.7.2",
-    "tslint": "^5.19.0",
+    "@gitzone/tstest": "^1.0.28",
+    "@pushrocks/tapbundle": "^3.2.0",
+    "@types/node": "^12.12.17",
+    "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0"
   },
   "dependencies": {
     "@types/fast-json-stable-stringify": "^2.0.0",
-    "fast-json-stable-stringify": "^2.0.0",
+    "fast-json-stable-stringify": "^2.1.0",
     "lodash.clonedeep": "^4.5.0"
   },
   "files": [
