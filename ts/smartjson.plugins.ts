@@ -1,9 +1,11 @@
+// third party scope
 import lodashCloneDeep from 'lodash.clonedeep';
 import stableJson2 from 'fast-json-stable-stringify';
+import bufferJson from 'buffer-json';
 
 const stableJson = stableJson2 as any;
 
-export { lodashCloneDeep, stableJson };
+export { bufferJson, lodashCloneDeep, stableJson };
 
 export interface IStableJsonTypes {
   Comparator: (a: IStableJsonTypes['CompareDescriptor'], b: IStableJsonTypes['CompareDescriptor']) => number;

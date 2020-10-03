@@ -4,9 +4,14 @@ export class Smartjson {
   // ======
   // STATIC
   // ======
-  public static parse = JSON.parse;
+  /**
+   * allows you to parse a json
+   */
+  public static parse = plugins.bufferJson.parse;
 
   public static stringify = (objArg: any, optionsArg: plugins.IStableJsonTypes['Options']) => {
+    const bufferedJson = plugins.bufferJson.stringify(objArg);
+    objArg = JSON.parse(bufferedJson);
     return plugins.stableJson(objArg, optionsArg);
   }
 
