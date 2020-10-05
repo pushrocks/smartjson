@@ -14,6 +14,19 @@ export class Smartjson {
     objArg = JSON.parse(bufferedJson);
     return plugins.stableJson(objArg, optionsArg);
   }
+  
+  /**
+   * enfolds data from an object
+   */
+  public static enfoldFromObject(objectArg) {
+    const newInstance = new this();
+    for (const keyName in objectArg) {
+      if (newInstance.saveableProperties.indexOf(keyName) !== -1) {
+        newInstance[keyName] = objectArg[keyName];
+      }
+    }
+    return newInstance;
+  }
 
   // ========
   // INSTANCE
@@ -30,17 +43,6 @@ export class Smartjson {
       newFoldedObject[keyName] = plugins.lodashCloneDeep(this[keyName]);
     }
     return newFoldedObject;
-  }
-
-  /**
-   * enfolds data from an object
-   */
-  public enfoldFromObject(objectArg) {
-    for (const keyName in objectArg) {
-      if (this.saveableProperties.indexOf(keyName) !== -1) {
-        this[keyName] = objectArg[keyName];
-      }
-    }
   }
 }
 

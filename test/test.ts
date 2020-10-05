@@ -26,8 +26,8 @@ tap.test('should create a folded object', async () => {
 });
 
 tap.test('should enfold from object', async () => {
-  mySomeClass.enfoldFromObject({ thisis: 'test2' });
-  expect(mySomeClass)
+  const mySomeClass2 = SomeClass.enfoldFromObject({ thisis: 'test2' });
+  expect(mySomeClass2)
     .property('thisis')
     .to.equal('test2');
 });
