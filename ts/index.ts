@@ -10,7 +10,7 @@ export const parse = plugins.bufferJson.parse;
  * @param objArg
  * @param optionsArg
  */
-export const stringify = (objArg: any, optionsArg: plugins.IStableJsonTypes['Options'] = {}) => {
+export const stringify = (objArg: any, optionsArg: plugins.IStableJsonTypes['Options'] = {}): string => {
   const bufferedJson = plugins.bufferJson.stringify(objArg);
   objArg = JSON.parse(bufferedJson);
   return plugins.stableJson(objArg, optionsArg);
