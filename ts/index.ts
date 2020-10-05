@@ -49,8 +49,17 @@ export class Smartjson {
    */
   public foldToObject() {
     const newFoldedObject: { [key: string]: any } = {};
+    const trackMap = [];
     for (const keyName of this.saveableProperties) {
-      newFoldedObject[keyName] = plugins.lodashCloneDeep(this[keyName]);
+      let value = this[keyName];
+      if (value instanceof Smartjson) {
+        if (trackMap.includes(value)) {
+          throw new Error('cycle detected');
+        }
+        trackMap.push(value);
+        value = value.foldToObject();
+      }
+      newFoldedObject[keyName] = plugins.lodashCloneDeep(value);
     }
     return newFoldedObject;
   }
