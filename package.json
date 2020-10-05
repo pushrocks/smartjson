@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/smartjson",
-  "version": "3.0.12",
+  "version": "4.0.0",
   "private": false,
   "description": "typed json handlers",
   "main": "dist_ts/index.js",
