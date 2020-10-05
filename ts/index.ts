@@ -6,7 +6,7 @@ import * as plugins from './smartjson.plugins';
 export const parse = plugins.bufferJson.parse;
 
 /**
- * 
+ *
  * @param objArg
  * @param optionsArg
  */

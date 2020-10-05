@@ -8,13 +8,19 @@ const stableJson = stableJson2 as any;
 export { bufferJson, lodashCloneDeep, stableJson };
 
 export interface IStableJsonTypes {
-  Comparator: (a: IStableJsonTypes['CompareDescriptor'], b: IStableJsonTypes['CompareDescriptor']) => number;
+  Comparator: (
+    a: IStableJsonTypes['CompareDescriptor'],
+    b: IStableJsonTypes['CompareDescriptor']
+  ) => number;
   CompareDescriptor: {
-      key: string;
-      value: any;
+    key: string;
+    value: any;
   };
   Options: {
-    cmp?: (a: IStableJsonTypes['CompareDescriptor'], b: IStableJsonTypes['CompareDescriptor']) => number;
+    cmp?: (
+      a: IStableJsonTypes['CompareDescriptor'],
+      b: IStableJsonTypes['CompareDescriptor']
+    ) => number;
     cycles?: boolean;
   };
 }

@@ -20,16 +20,12 @@ tap.test('should create a Foldable extended instance', async () => {
 
 tap.test('should create a folded object', async () => {
   let foldedObject = mySomeClass.foldToObject();
-  expect(foldedObject)
-    .property('thisis')
-    .to.equal('test');
+  expect(foldedObject).property('thisis').to.equal('test');
 });
 
 tap.test('should enfold from object', async () => {
   const mySomeClass2 = SomeClass.enfoldFromObject({ thisis: 'test2' });
-  expect(mySomeClass2)
-    .property('thisis')
-    .to.equal('test2');
+  expect(mySomeClass2).property('thisis').to.equal('test2');
 });
 
 tap.start();
