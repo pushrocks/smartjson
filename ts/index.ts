@@ -1,20 +1,22 @@
 import * as plugins from './smartjson.plugins';
 
-export class Smartjson {
-  // ======
-  // STATIC
-  // ======
-  /**
-   * allows you to parse a json
-   */
-  public static parse = plugins.bufferJson.parse;
+/**
+ * allows you to parse a json
+ */
+export const parse = plugins.bufferJson.parse;
 
-  public static stringify = (objArg: any, optionsArg: plugins.IStableJsonTypes['Options']) => {
-    const bufferedJson = plugins.bufferJson.stringify(objArg);
-    objArg = JSON.parse(bufferedJson);
-    return plugins.stableJson(objArg, optionsArg);
-  }
-  
+/**
+ * 
+ * @param objArg
+ * @param optionsArg
+ */
+export const stringify = (objArg: any, optionsArg: plugins.IStableJsonTypes['Options'] = {}) => {
+  const bufferedJson = plugins.bufferJson.stringify(objArg);
+  objArg = JSON.parse(bufferedJson);
+  return plugins.stableJson(objArg, optionsArg);
+};
+
+export class Smartjson {
   /**
    * enfolds data from an object
    */
@@ -26,6 +28,14 @@ export class Smartjson {
       }
     }
     return newInstance;
+  }
+
+  /**
+   * enfold from json
+   */
+  public static enfoldFromJson(jsonArg: string) {
+    const objectFromJson = parse(jsonArg);
+    return this.enfoldFromObject(objectFromJson);
   }
 
   // ========
@@ -43,6 +53,14 @@ export class Smartjson {
       newFoldedObject[keyName] = plugins.lodashCloneDeep(this[keyName]);
     }
     return newFoldedObject;
+  }
+
+  /**
+   * folds a class into an object
+   */
+  public foldToJson() {
+    const foldedObject = this.foldToObject();
+    return stringify(foldedObject, {});
   }
 }
 
