@@ -76,7 +76,7 @@ export class Smartjson {
 /**
  * Decorator that marks a property as foldable
  */
-export let foldDec = () => {
+export const foldDec = () => {
   return (target: any, key: string) => {
     if (!target.saveableProperties) {
       target.saveableProperties = [];
@@ -84,3 +84,9 @@ export let foldDec = () => {
     target.saveableProperties.push(key);
   };
 };
+
+export const deepEqualObjects = (object1: any, object2: any): boolean => {
+  const object1String = stringify(object1);
+  const object2String = stringify(object2);
+  return object1String === object2String;
+}
